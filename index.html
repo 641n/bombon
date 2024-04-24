@@ -1,0 +1,204 @@
+<html>
+<head>
+<style>
+/* @import url("https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css"); */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+@import url("https://fonts.googleapis.com/css2?family=Jura:wght@500;600;900&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  --color: rgba(30, 30, 30);
+  --bgColor: rgba(245, 245, 245);
+  min-height: 100vh;
+
+  display: grid;
+  align-content: center;
+  gap: 2rem;
+  padding: 2rem;
+
+  font-family: "Jura", sans-serif;
+  color: var(--color);
+  background: var(--bgColor);
+}
+
+h1 {
+  text-align: center;
+}
+
+ul {
+  --col-gap: 2rem;
+  --barH: 1rem;
+  --roleH: 2rem;
+  --flapH: 2rem;
+
+  width: min(60rem, 90%);
+  margin-inline: auto;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: var(--col-gap);
+  padding-inline: calc(var(--col-gap) / 2);
+
+  justify-content: center;
+  align-items: flex-start;
+  list-style: none;
+}
+ul li {
+  width: 10em;
+  display: grid;
+  grid-template:
+    "role"
+    "icon"
+    "title"
+    "descr";
+  align-items: flex-start;
+  gap: 1rem;
+  padding-block-end: calc(var(--flapH) + 1rem);
+  text-align: center;
+  background: var(--accent-color);
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.6) var(--roleH),
+    rgba(0, 0, 0, 0.4) calc(var(--roleH) + 0.5rem),
+    rgba(0, 0, 0, 0) calc(var(--roleH) + 0.5rem + 5rem)
+  );
+  clip-path: polygon(
+    calc(var(--col-gap) / -2 - 5px) 0,
+    calc(100% + var(--col-gap) / 2 + 5px) 0,
+    calc(100% + var(--col-gap) / 2 + 5px ) calc(100% - var(--flapH)),
+    50% 100%,
+    calc(var(--col-gap) / -2 - 5px) calc(100% - var(--flapH))
+  );
+}
+
+/* bar */
+ul li::before {
+  content: "";
+  grid-area: role;
+  height: var(--barH);
+  width: calc(100% + var(--col-gap));
+  margin-left: calc(var(--col-gap) / -2);
+  margin-top: calc(var(--roleH) / 2 - var(--barH) / 2);
+  background: grey;
+  z-index: -1;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.2) 30%,
+    rgba(255, 255, 255, 0.1) 40%,
+    rgba(0, 0, 0, 0.1) 60%,
+    rgba(0, 0, 0, 0.2) 70%,
+    rgba(0, 0, 0, 0.4)
+  );
+}
+
+/* role */
+ul li::after {
+  content: "";
+  grid-area: role;
+  background: var(--accent-color);
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.2) 30%,
+    rgba(255, 255, 255, 0.1) 40%,
+    rgba(0, 0, 0, 0.1) 60%,
+    rgba(0, 0, 0, 0.2) 70%,
+    rgba(0, 0, 0, 0.4)
+  );
+  height: var(--roleH);
+}
+
+ul li .icon,
+ul li .title,
+ul li .descr {
+  padding-inline: 1rem;
+  color: white;
+  text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+ul li .icon {
+  font-size: 3rem;
+}
+ul li .title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+ul li .descr {
+  font-size: 0.9rem;
+}
+
+.credits {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+.credits a {
+  color: var(--color);
+}
+
+a { color: #fff; text-decoration:none; }
+</style>
+</head>
+<body>
+<h1>BARANGAYS OF BOMBON</h1>
+<ul class="ulflags">
+    <li style="--accent-color:#0B374D">
+        <div class="icon">
+		<i class="fa-solid fa-users-rectangle"></i></div>
+        <div class="title"><a href="http://alagaw.dict.gov.ph/~s2govbombonph/about-us/the-municipality/brgy-pagao/" target="_parent">Barangay Pagao</a></div>
+        <div class="descr">(San Juan)<br><br>JOSE G. CAMALLA<br>Punong Barangay<br><br>HOTLINE:<br>-<br><br>FIESTA:<br>June 24</div>
+    </li>
+    <li style="--accent-color:#1286A8">
+        <div class="icon"><i class="fa-solid fa-users-viewfinder"></i></div>
+        <div class="title"><a href="http://alagaw.dict.gov.ph/~s2govbombonph/about-us/the-municipality/brgy-san-antonio/" target="_parent">Barangay San Antonio</a></div>
+        <div class="descr">JOVETTE L. ALAYAN<br>Punong Barangay<BR><BR>HOTLINE:<br>-<br><br>FIESTA:<br>June 13</div>
+    </li>
+    <li style="--accent-color:#53B">
+        <div class="icon">
+		<i class="fa-solid fa-users-rays"></i></div>
+        <div class="title"><a href="http://alagaw.dict.gov.ph/~s2govbombonph/about-us/the-municipality/brgy-san-francisco/" target="_parent">Barangay San Francisco</a></div>
+        <div class="descr">RANDY P. ASIDO<br>Punong Barangay<br><br>HOTLINE:<br>-<br><br>FIESTA:<br>October 4</div>
+    </li>
+    <li style="--accent-color:#1286A8">
+        <div class="icon">
+		<i class="fa-solid fa-users-between-lines"></i></div>
+        <div class="title"><a href="http://alagaw.dict.gov.ph/~s2govbombonph/about-us/the-municipality/brgy-san-isidro/" target="_parent">Barangay San Isidro</a></div>
+        <div class="descr">JUDITH P. LACHICA<br>Punong Barangay<br><br>HOTLINE:<br>0910 318 7522<br><br>FIESTA:<br>May 15</div>
+    </li>
+    <li style="--accent-color:#0B374D">
+        <div class="icon">
+		<i class="fa-solid fa-people-roof"></i></div>
+        <div class="title"><a href="http://alagaw.dict.gov.ph/~s2govbombonph/about-us/the-municipality/brgy-san-jose/" target="_parent">Barangay San Jose</a></div>
+        <div class="descr">EDWIN B. CANTALEJO<br>Punong Barangay<br><br>HOTLINE:<br>-<br><br>FIESTA:<br>March 19</div>
+    </li>
+   <li style="--accent-color:#1286A8">
+        <div class="icon">
+        <i class="fa-solid fa-people-line"></i>
+		</div>
+        <div class="title"><a href="http://alagaw.dict.gov.ph/~s2govbombonph/about-us/the-municipality/brgy-san-roque/" target="_parent">Barangay San Roque</a></div>
+        <div class="descr">JAMES PAUL A. RANIN<br>Punong Barangay<br><br>HOTLINE:<br>0933 865 7430<br>0992 224 4817<br><br>FIESTA:<br>August 16</div>
+    </li>
+    <li style="--accent-color:#53B">
+        <div class="icon">
+		<i class="fa-solid fa-people-group"></i></div>
+        <div class="title"><a href="http://alagaw.dict.gov.ph/~s2govbombonph/about-us/the-municipality/brgy-santo-domingo/" target="_parent">Barangay Santo Domingo</a></div>
+        <div class="descr">VEAN ANDRO C. HAYAG<br>Punong Barangay<br><br>HOTLINE:<br>-<br><br>FIESTA:<br>August 8</div>
+    </li>
+    <li style="--accent-color:#1286A8">
+        <div class="icon">
+		<i class="fa-solid fa-user-group"></i></div>
+        <div class="title"><a href="http://alagaw.dict.gov.ph/~s2govbombonph/about-us/the-municipality/brgy-siembre/" target="_parent">Barangay Siembre</a></div>
+        <div class="descr">HONRADEZ T. DAURAN<br>Punong Barangay<br><br>HOTLINE:<br>-<br><br>FIESTA:<br>July 16</div>
+    </li>
+  
+</ul>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v55bfa2fee65d44688e90c00735ed189a1713218998793" integrity="sha512-FIKRFRxgD20moAo96hkZQy/5QojZDAbyx0mQ17jEGHCJc/vi0G2HXLtofwD7Q3NmivvP9at5EVgbRqOaOQb+Rg==" data-cf-beacon='{"rayId":"878a9bac4e69b9f5","b":1,"version":"2024.3.0","token":"0e07e0b335ae40eebd4183f9a3358feb"}' crossorigin="anonymous"></script>
+</body>
+</html>
